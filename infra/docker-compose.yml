@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ../apps/backend
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    environment:
+      - PORT=4000
+    volumes:
+      - ../apps/backend:/app
+      - /app/node_modules
+    networks:
+      - quantbenchx-network
+
+  frontend:
+    build:
+      context: ../apps/frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:4000
+    volumes:
+      - ../apps/frontend:/app
+      - /app/node_modules
+    networks:
+      - quantbenchx-network
+
+  # Mock Redis
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - quantbenchx-network
+
+  # Mock Postgres
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: quant
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: quantbenchx
+    ports:
+      - "5432:5432"
+    networks:
+      - quantbenchx-network
+
+networks:
+  quantbenchx-network:
+    driver: bridge
