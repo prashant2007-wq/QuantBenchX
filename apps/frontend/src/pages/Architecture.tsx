@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Database, Server, Cpu, Activity, Globe, RefreshCcw, Box } from 'lucide-react';
+import { Database, Server, Cpu, Globe, RefreshCcw, Box } from 'lucide-react';
 
 export default function Architecture() {
   return (

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { io } from 'socket.io-client';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { Activity, Clock, ServerCrash, CheckCircle2 } from 'lucide-react';
+import { Activity } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function LiveBenchmark() {

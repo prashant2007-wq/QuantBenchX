@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, Medal, Award } from 'lucide-react';
+import { Trophy, Medal } from 'lucide-react';
 import { io } from 'socket.io-client';
 
 export default function Leaderboard() {

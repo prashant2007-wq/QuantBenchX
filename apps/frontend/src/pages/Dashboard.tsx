@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Terminal, Upload, Play, CheckCircle } from 'lucide-react';
+import { Upload, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Dashboard() {
